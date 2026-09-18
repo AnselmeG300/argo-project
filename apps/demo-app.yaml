@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     # A REMPLACER par l'URL de VOTRE repo Git (celui ou vous poussez ce dossier)
-    repoURL: https://github.com/VOTRE-COMPTE/argocd-demo.git
+    repoURL: https://github.com/AnselmeG300/argo-project.git
     targetRevision: main
     path: manifests/demo
   destination:

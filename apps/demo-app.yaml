@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-web
+  namespace: argocd
+spec:
+  project: default
+  source:
+    # A REMPLACER par l'URL de VOTRE repo Git (celui ou vous poussez ce dossier)
+    repoURL: https://github.com/VOTRE-COMPTE/argocd-demo.git
+    targetRevision: main
+    path: manifests/demo
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    # Sync MANUEL au depart : on declenche le sync a la main pendant la demo.
+    # On active l'automatisation en direct (bloc 6 du script) en decommentant :
+    #
+    # automated:
+    #   selfHeal: true
+    #   prune: true
